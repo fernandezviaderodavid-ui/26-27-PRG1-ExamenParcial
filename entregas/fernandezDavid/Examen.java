@@ -1,5 +1,4 @@
 
-import javax.swing.SingleSelectionModel;
 
 public class Examen {
     public static void main(String[] args) {
@@ -22,12 +21,7 @@ if (edad >= 16 && edad <= 99) {
         sistem.out.ptrintln("Eres valido");
     } else if (asignaturas =0 && asignaturas > 10) {
         sistem.out.ptrintln("No eres valido");
-
-}System.out.println(".(¿Qué nota has obtenido en la asignatura N?)");
-
-
-
-
+        
 import java.util.Scanner;
 
 public class CalificacionesApp {
