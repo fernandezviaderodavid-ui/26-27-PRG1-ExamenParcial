@@ -24,6 +24,10 @@ if (edad >= 16 && edad <= 99) {
         sistem.out.ptrintln("No eres valido");
 
 }System.out.println(".(¿Qué nota has obtenido en la asignatura N?)");
+
+
+
+
 int nota asignatura=>1 
 
 import java.util.Scanner;
@@ -44,6 +48,8 @@ public class CalificacionesApp {
         
         int notaMasAlta = -1;
         String asignaturaMasAlta = "";
+        int notaMasBaja = 11;
+        String asignaturaMasBaja = "";
         
         System.out.println("=== INTRODUCE LAS CALIFICACIONES (1 a 10) ===");
         
@@ -66,10 +72,14 @@ public class CalificacionesApp {
                 suspensas++;
             }
             
-            // Actualizamos la nota más alta si la actual es mayor
             if (nota > notaMasAlta) {
                 notaMasAlta = nota;
                 asignaturaMasAlta = asignaturas[i];
+            }
+            
+            if (nota < notaMasBaja) {
+                notaMasBaja = nota;
+                asignaturaMasBaja = asignaturas[i];
             }
         }
         
@@ -86,6 +96,9 @@ public class CalificacionesApp {
         System.out.println("Asignaturas aprobadas (5 o más): " + aprobadas);
         System.out.println("Asignaturas suspensas (menos de 5): " + suspensas);
         System.out.println("Nota más alta: " + notaMasAlta + " (" + asignaturaMasAlta + ")");
+        System.out.println("Nota más baja: " + notaMasBaja + " (" + asignaturaMasBaja + ")");
+    }
+}
     }
 }
 }
