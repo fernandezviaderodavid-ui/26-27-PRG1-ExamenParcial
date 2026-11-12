@@ -28,8 +28,6 @@ if (edad >= 16 && edad <= 99) {
 
 
 
-int nota asignatura=>1 
-
 import java.util.Scanner;
 
 public class CalificacionesApp {
@@ -97,12 +95,14 @@ public class CalificacionesApp {
         System.out.println("Asignaturas suspensas (menos de 5): " + suspensas);
         System.out.println("Nota más alta: " + notaMasAlta + " (" + asignaturaMasAlta + ")");
         System.out.println("Nota más baja: " + notaMasBaja + " (" + asignaturaMasBaja + ")");
+        
+        System.out.println("---------------------------------");
+        if (media >= 5) {
+            System.out.println("Estado: ¡Promociona!");
+        } else {
+            System.out.println("Estado: Recupera.");
+        }
     }
-}
-    }
-}
-}
-}
 }
     }
 }
