@@ -26,31 +26,7 @@ if (edad >= 16 && edad <= 99) {
 }System.out.println(".(¿Qué nota has obtenido en la asignatura N?)");
 int nota asignatura=>1 
 
-import java.util.Random;
-
-public class MediaNotasApp {
-    public static void main(String[] args) {
-        String[] asignaturas = {
-            "Matemáticas", "Física", "Química", "Historia", 
-            "Literatura", "Inglés", "Biología", "Informática", 
-            "Geografía", "Educación Física"
-        };
-        
-        Random random = new Random();
-        double sumaNotas = 0;
-        
-        System.out.println("=== BOLETÍN DE CALIFICACIONES ===");
-        
-        for (int i = 0; i < asignaturas.length; i++) {
-            int nota = random.nextInt(10) + 1;
-            sumaNotas += nota;
-            System.out.println(asignaturas[i] + ": " + nota);
-        }
-        
-        double media = sumaNotas / asignaturas.length;
-        System.out.println("---------------------------------");
-        System.out.println("Nota media final: " + media);
-        import java.util.Random;
+import java.util.Scanner;
 
 public class CalificacionesApp {
     public static void main(String[] args) {
@@ -60,28 +36,60 @@ public class CalificacionesApp {
             "Geografía", "Educación Física"
         };
         
-        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
         double sumaNotas = 0;
         int aprobadas = 0;
+        int suspensas = 0;
+        int[] notas = new int[asignaturas.length];
         
-        System.out.println("=== BOLETÍN DE CALIFICACIONES ===");
+        int notaMasAlta = -1;
+        String asignaturaMasAlta = "";
+        
+        System.out.println("=== INTRODUCE LAS CALIFICACIONES (1 a 10) ===");
         
         for (int i = 0; i < asignaturas.length; i++) {
-            int nota = random.nextInt(10) + 1;
-            sumaNotas += nota;
-            System.out.println(asignaturas[i] + ": " + nota);
+            int nota;
+            do {
+                System.out.print("Introduce la nota para " + asignaturas[i] + ": ");
+                nota = scanner.nextInt();
+                if (nota < 1 || nota > 10) {
+                    System.out.println("Error: La nota debe estar entre 1 y 10. Inténtalo de nuevo.");
+                }
+            } while (nota < 1 || nota > 10);
             
-            // Contamos si la nota es 5 o más
+            notas[i] = nota;
+            sumaNotas += nota;
+            
             if (nota >= 5) {
                 aprobadas++;
+            } else {
+                suspensas++;
             }
+            
+            // Actualizamos la nota más alta si la actual es mayor
+            if (nota > notaMasAlta) {
+                notaMasAlta = nota;
+                asignaturaMasAlta = asignaturas[i];
+            }
+        }
+        
+        scanner.close();
+        
+        System.out.println("\n=== BOLETÍN DE CALIFICACIONES ===");
+        for (int i = 0; i < asignaturas.length; i++) {
+            System.out.println(asignaturas[i] + ": " + notas[i]);
         }
         
         double media = sumaNotas / asignaturas.length;
         System.out.println("---------------------------------");
         System.out.println("Nota media final: " + media);
         System.out.println("Asignaturas aprobadas (5 o más): " + aprobadas);
+        System.out.println("Asignaturas suspensas (menos de 5): " + suspensas);
+        System.out.println("Nota más alta: " + notaMasAlta + " (" + asignaturaMasAlta + ")");
     }
+}
+}
+}
 }
     }
 }
